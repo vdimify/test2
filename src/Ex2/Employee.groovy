@@ -1,8 +1,5 @@
 package Ex2
 
-import groovy.transform.ToString
-
-@ToString
 class Employee {
 
     private String id
