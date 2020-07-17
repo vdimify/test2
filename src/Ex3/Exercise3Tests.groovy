@@ -1,5 +1,6 @@
 package Ex3
 
+import com.sun.xml.bind.v2.TODO
 import org.testng.annotations.BeforeClass
 import org.testng.annotations.Test
 
@@ -37,6 +38,7 @@ class Exercise3Tests {
 
     @Test
     void testCheckYearIsLeap(){
+        //TODO cannot read from console
         println( "Enter a year")
         int year = System.in.newReader().readLine() as Integer
         def result = ex3.checkIfYearIsLeap(year)
@@ -45,6 +47,18 @@ class Exercise3Tests {
         } else {
             println("It is NOT a leap year")
         }
+    }
+
+    @Test
+    void testPasswordIsValid(){
+        boolean result = ex3.isPasswordValid("Pa4des*()&^^rd12")
+        println(result)
+    }
+
+
+    @Test
+    void testGetMonthByItsNumber(){
+        print(ex3.getMonthByItsNumber(4))
     }
 
 
