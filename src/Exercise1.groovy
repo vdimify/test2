@@ -1,8 +1,7 @@
 class Exercise1 {
 
     def isStringPalindrome = { String string ->
-        def reverseString = reverseString(string)
-        return string == reverseString
+        return string == reverseString(string)
     }
 
     def countWordsInSentence = { String string ->
@@ -20,9 +19,7 @@ class Exercise1 {
     }
 
     def reverseString(def string) {
-        StringBuilder stringBuilder = new StringBuilder(string);
-        String reversedString = stringBuilder.reverse().toString()
-        return reversedString
+        return string.reverse()
     }
 
     def switchLowerAndUpperCases(String s) {
@@ -37,4 +34,37 @@ class Exercise1 {
         return new String(ch)
     }
 
+    def printEmails() {
+        for(int i in 1..100){
+            printf("viktoriya.dimitrova+%03d@mentormate.com\n", i)
+        }
+    }
+
+    def printEmailWithDate(Date date) {
+        //if DD - shows day of the year, not of the month
+        def formattedDate = date.format("YYYY/MM/dd/HH/mm")
+        printf("viktoriya.dimitrova+"+ formattedDate + "@mentormate.com")
+    }
+
+    def findRepeatedCharacters(String s) {
+        def alphaNumericString  = s.replaceAll("\\W","")
+        def map = [:]
+        alphaNumericString.each {letter ->
+            if(!map.containsKey(letter)){
+                map.put(letter,alphaNumericString.findAll(letter).size())
+            }
+        }
+        map.each {key, val ->
+            if(val > 1 ){
+                println(key)
+            }
+        }
+    }
+
+
+    def countAllLettersNumbersAndSpecialCharacters(String s) {
+        def alphaNumericString  = s.replaceAll("\\s","")
+        def countOfAllSymbols = alphaNumericString.size()
+        return countOfAllSymbols
+    }
 }

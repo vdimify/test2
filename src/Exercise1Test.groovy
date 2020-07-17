@@ -10,7 +10,8 @@ class Exercise1Test {
     private static final COUNT_LETTERS_OCCURRENCES = "Random gibberish text to use in web pages, site templates and in typography demos."
     private static final NORMAL_ORDER_STRING = "I am normal sentence"
     private static final REVERSED_ORDER_STRING = "ecnetnes lamron ma I"
-    private static final UPPER_AND_LOWER_CASE_CHARACRERS = "I am HEADING"
+    private static final UPPER_AND_LOWER_CASE_CHARACTERS = "I am HEADING"
+    private static final REPEATER_CHARS_INPUT = "I am normal sentence"
 
     Exercise1 ex1
 
@@ -67,10 +68,34 @@ class Exercise1Test {
 
     @Test
     void testSwitchingUpperAndLowerCaseCharacters(){
-        def result = ex1.switchLowerAndUpperCases(UPPER_AND_LOWER_CASE_CHARACRERS)
+        def result = ex1.switchLowerAndUpperCases(UPPER_AND_LOWER_CASE_CHARACTERS)
         println(result)
-        assert result.charAt(0).isUpperCase() != UPPER_AND_LOWER_CASE_CHARACRERS.charAt(0).isUpperCase()
+        assert result.charAt(0).isUpperCase() != UPPER_AND_LOWER_CASE_CHARACTERS.charAt(0).isUpperCase()
     }
 
+
+    @Test
+    void testPrintingEmails(){
+        ex1.printEmails()
+    }
+
+
+    @Test
+    void testPrintingDateEmails(){
+        def date = new Date()
+        ex1.printEmailWithDate(date)
+    }
+
+    @Test
+    void testFindingRepeatedCharacters(){
+        ex1.findRepeatedCharacters(REPEATER_CHARS_INPUT)
+
+    }
+
+    @Test
+    void testCountAllLettersNumberAndSpecialCharacters(){
+        def result = ex1.countAllLettersNumbersAndSpecialCharacters("\"<b>our string %Welcome to <h>mentormate@te1.com</h></b>\"")
+        assert result == 53
+    }
 
 }
